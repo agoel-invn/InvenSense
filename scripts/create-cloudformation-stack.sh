@@ -1,9 +1,10 @@
 #!/bin/bash
 
-stack_name=$1
+stack_name=$(yq eval '.cloudformation.stack_name' ../configurations/configuration.yaml)
 
 if [ -z $stack_name ]; then
-    echo "Usage: $0 <stack_name>"
+    # echo "Usage: $0 <stack_name>"
+    echo "Update <stack_name> in ../configurations/configuration.yaml"
     exit 1
 fi
 
