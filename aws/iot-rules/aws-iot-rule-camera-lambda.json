@@ -1,0 +1,12 @@
+{
+    "sql": "SELECT * FROM 'tdk_robokit_camera'", 
+    "ruleDisabled": false, 
+    "awsIotSqlVersion": "2016-03-23",
+    "actions": [
+        {
+            "lambda": {
+                "functionArn": "arn:aws:lambda:us-west-1:771899563211:function:convertSensorMessages"
+                }
+        }
+    ]
+}
