@@ -1,25 +1,26 @@
 cloudformation:
-
+  stack_name: InvenSense-stack
+ecr:
+  repository_name: invensense-ros2-cloud
+  repository_uri: 771899563211.dkr.ecr.us-west-1.amazonaws.com/invensense-ros2-cloud
 iot:
-    ros_topics:
-        - tdk_robokit_icm42622_py
-        - tdk_robokit_ch101_py
-        - tdk_robokit_ak09918
-        - tdk_robokit_ics43434
-        - tdk_robokit_icp10101
-        - tdk_robokit_ads7052
-        - tdk_robokit_camera_py
-        - tdk_robokit_lidar_py
-    iot_topics:
-        - cloud_tdk_robokit_icm42622_py
-        - cloud_tdk_robokit_ch101_py
-        - cloud_tdk_robokit_ak09918
-        - cloud_tdk_robokit_ics43434
-        - cloud_tdk_robokit_icp10101
-        - cloud_tdk_robokit_ads7052
-        - cloud_tdk_robokit_camera_py
-        - cloud_tdk_robokit_lidar_py
-
+  ros2_topics:
+    - tdk_robokit_icm42622_py
+    - tdk_robokit_ch101_py
+    - tdk_robokit_ak09918
+    - tdk_robokit_ics43434
+    - tdk_robokit_icp10101
+    - tdk_robokit_ads7052
+    - tdk_robokit_camera_py
+    - tdk_robokit_lidar_py
+  iot_topics:
+    - cloud_tdk_robokit_icm42622_py
+    - cloud_tdk_robokit_ch101_py
+    - cloud_tdk_robokit_ak09918
+    - cloud_tdk_robokit_ics43434
+    - cloud_tdk_robokit_icp10101
+    - cloud_tdk_robokit_ads7052
+    - cloud_tdk_robokit_camera_py
+    - cloud_tdk_robokit_lidar_py
 lambda:
-
 s3:
