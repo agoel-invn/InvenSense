@@ -1,8 +1,10 @@
 cloudformation:
   stack_name: InvenSense-stack
+  username: InvenSense-stack-GreengrassProvisioningUser-EMXOII7TUPLR
+  s3bucket: invensense-stack-s3bucket-1b87o2hmv4hq1
 ecr:
   repository_name: invensense-ros2-cloud
-  repository_uri: 771899563211.dkr.ecr.us-west-1.amazonaws.com/invensense-ros2-cloud
+  repository_uri: 771899563211.dkr.ecr.us-east-2.amazonaws.com/invensense-ros2-cloud
 iot:
   ros2_topics:
     - tdk_robokit_icm42622_py
@@ -22,5 +24,12 @@ iot:
     - cloud_tdk_robokit_ads7052
     - cloud_tdk_robokit_camera_py
     - cloud_tdk_robokit_lidar_py
+  thing_name_series: InvenSense-
+  thing_group_name: InvenSense
+  thing_name: InvenSense-02-42-c4-f1-20-c3
 lambda:
 s3:
+Manifests:
+  - Artifacts:
+      - null
+      - URI: s3://invensense-stack-s3bucket-j3xh056mr9cr/com.invensense.cloud/1.0.0/artifacts/docker-compose.yaml
