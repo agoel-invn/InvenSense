@@ -1,0 +1,9 @@
+std_msgs/Header header
+uint64 timestamp
+uint8 rx_sensor_id
+uint8 tx_sensor_id
+uint16 peak_location
+float64 distance_to_object
+float64 var_floor
+float64 mean_floor_final
+float64 coeff_sensor
