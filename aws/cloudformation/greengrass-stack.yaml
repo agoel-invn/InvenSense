@@ -24,7 +24,7 @@ Resources:
   GreengrassTokenExchangeRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: "InvenSenseGreengrassV2TokenExchangeRole"
+      RoleName: "GreengrassV2TokenExchangeRole"
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -37,7 +37,7 @@ Resources:
   RobotPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: InvenSenseRobotPolicy
+      PolicyName: RobotPolicy
       PolicyDocument:
         Statement:
           - Effect: Allow
@@ -67,7 +67,7 @@ Resources:
   GreengrassTokenPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: InvenSenseGreengrassTokenExchangePolicy
+      PolicyName: GreengrassTokenExchangePolicy
       PolicyDocument:
         Statement:
           - Effect: Allow
@@ -88,7 +88,7 @@ Resources:
   GreengrassProvisioningUserPolicies:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: InvenSenseGreengrassProvisioningUsers
+      PolicyName: GreengrassProvisioningUsers
       PolicyDocument:
         Statement:
           - Effect: Allow
@@ -136,4 +136,4 @@ Outputs:
     Description: User name for the provisioning user.
   S3BucketName:
     Value: !Ref S3Bucket
-    Description: S3 bucket to upload assets to.
+    Description: S3 bucket to upload assets to. 
