@@ -19,7 +19,6 @@ export AWS_PROFILE=greengrass
 sudo -E java -Droot="/greengrass/v2" -Dlog.store=FILE -jar ../greengrass/GreengrassCore/lib/Greengrass.jar \
     --thing-name "$modified_thing_name" \
     --thing-group-name "$thing_group_name" \
-    --tes-role-name InvenSenseGreengrassV2TokenExchangeRole \
     --aws-region us-east-2 \
     --component-default-user ggc_user:ggc_group \
     --provision true \

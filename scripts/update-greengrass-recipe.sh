@@ -46,8 +46,8 @@ upload_recipy_to_aws_bucket() {
 
 
 # Add the topics
-add_topics_to_recipe "$ros2_topics"
-add_topics_to_recipe "$iot_topics"
+# add_topics_to_recipe "$ros2_topics"
+# add_topics_to_recipe "$iot_topics"
 update_bucket_in_greengrass_recipe
 update_ecr_uri_in_greengrass_recipe
 upload_recipy_to_aws_bucket

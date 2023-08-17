@@ -8,6 +8,10 @@ if [ -z $repository_name ]; then
     exit 1
 fi
 
+aws ecr delete-repository \
+    --repository-name "$repository_name" \
+    --force
+
 aws ecr create-repository \
     --repository-name "$repository_name"
 

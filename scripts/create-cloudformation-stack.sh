@@ -8,15 +8,23 @@ if [ -z $stack_name ]; then
     exit 1
 fi
 
-delete_stack() {
-    # Delete the failed stack
-    aws cloudformation delete-stack \
-        --stack-name $stack_name
+# delete_stack() {
 
-    # Wait for the stack deletion to complete
-    aws cloudformation wait stack-delete-complete \
-        --stack-name $stack_name
-}
+
+#     local s3bucket=$(yq eval '.cloudformation.s3bucket' ../configurations/configuration.yaml)
+
+#     aws s3 rm s3://"$s3bucket" --recursive
+
+#     aws s3api delete-bucket --bucket "$s3bucket"
+
+#     # Delete the failed stack
+#     aws cloudformation delete-stack \
+#         --stack-name $stack_name
+
+#     # Wait for the stack deletion to complete
+#     aws cloudformation wait stack-delete-complete \
+#         --stack-name $stack_name
+# }
 
 create_stack() {
     aws cloudformation create-stack \
@@ -35,10 +43,11 @@ create_stack() {
 }
 
 check_if_stack_exists() {
-    local stack_status=$(aws cloudformation describe-stacks --stack-name "$stack_name" --query 'Stacks[0].StackStatus' --output text)
-    if [ "$stack_status" = "ROLLBACK_COMPLETE" ]; then
-        echo "Stack $stack_name is in ROLLBACK_COMPLETE state."
+    local stack_status=$(aws cloudformation describe-stacks --stack-name "$stack_name" --query 'Stacks[0].StackId' --output text)
+    if [ $? -eq 0 ]; then
+        echo "Stack $stack_name already exists."
         echo "Deleting stack $stack_name."
+        source ./delete-cloudformation-stack.sh
         delete_stack
     fi
     echo "Creating stack $stack_name."
