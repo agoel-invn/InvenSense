@@ -24,7 +24,7 @@ Resources:
   GreengrassTokenExchangeRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: "GreengrassV2TokenExchangeRole"
+      RoleName: InvensenseGreengrassV2TokenExchangeRole
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -37,7 +37,7 @@ Resources:
   RobotPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: RobotPolicy
+      PolicyName: InvensenseRobotPolicy
       PolicyDocument:
         Statement:
           - Effect: Allow
@@ -67,7 +67,7 @@ Resources:
   GreengrassTokenPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: GreengrassTokenExchangePolicy
+      PolicyName: InvensenseGreengrassTokenExchangePolicy
       PolicyDocument:
         Statement:
           - Effect: Allow
@@ -88,7 +88,7 @@ Resources:
   GreengrassProvisioningUserPolicies:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: GreengrassProvisioningUsers
+      PolicyName: InvensenseGreengrassProvisioningUsers
       PolicyDocument:
         Statement:
           - Effect: Allow
