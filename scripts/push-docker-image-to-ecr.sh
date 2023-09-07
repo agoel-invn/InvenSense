@@ -9,8 +9,10 @@ if [ -z $repository_name ]; then
     exit 1
 fi
 
-aws ecr get-login-password | sudo docker login --username AWS --password-stdin 771899563211.dkr.ecr.us-east-2.amazonaws.com
+uri=$(echo "$repository_uri" | cut -d'/' -f1)
 
-sudo docker tag "$repository_name":latest 771899563211.dkr.ecr.us-east-2.amazonaws.com/"$repository_name":latest
+aws ecr get-login-password | sudo docker login --username AWS --password-stdin $uri
 
-sudo docker push 771899563211.dkr.ecr.us-east-2.amazonaws.com/"$repository_name":latest
+sudo docker tag "$repository_name":latest $repository_uri:latest
+
+sudo docker push $repository_uri:latest
