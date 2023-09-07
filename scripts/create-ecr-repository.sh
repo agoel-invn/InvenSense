@@ -18,4 +18,4 @@ aws ecr create-repository \
 repository_uri=$(aws ecr describe-repositories --repository-names "$repository_name" --query 'repositories[0].repositoryUri' --output text)
 echo "$repository_uri"
 
-yq eval '.ecr.repository_uri = "'"$repository_uri"'"' -i ../configurations/configuration.yaml
+yq eval ".ecr.repository_uri = \"$repository_uri\"" -i ../configurations/configuration.yaml
