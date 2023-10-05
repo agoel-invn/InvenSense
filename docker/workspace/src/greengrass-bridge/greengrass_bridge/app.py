@@ -20,6 +20,7 @@ SOFTWARE.
 """
 
 import rclpy
+from rclpy.parameter import Parameter
 from rclpy.node import Node
 import json
 from std_msgs.msg import String
@@ -35,12 +36,15 @@ class GreengrassBridge(Node):
 
     def __init__(self):    
         super().__init__("greengrass_bridge")
+
+        iot_topics_param = Parameter( name="iot_topics", type_=Parameter.Type.STRING_ARRAY, value=[] )
+        ros_topics_param = Parameter( name="ros_topics", type_=Parameter.Type.STRING_ARRAY, value=[] )
         
         self.declare_parameters(
             namespace="",
             parameters=[
-                ("iot_topics", []),
-                ("ros_topics", []),
+                ( iot_topics_param.name, iot_topics_param.get_parameter_value() ),
+                ( ros_topics_param.name, ros_topics_param.get_parameter_value() ),
                 ("timeout", 10)
             ]
         )
