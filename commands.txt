@@ -1,0 +1,8 @@
+sudo docker run -t -i --device=/dev/ttyUSB0 --net=host d45f04f1a211 bash
+
+docker run -t -i --device=/dev/ttyUSB0 312d6b465fcd bash
+
+docker exec -t -i 312d6b465fcd bash
+
+source /opt/ros/humble/setup.bash
+source /opt/ros_demos/setup.bash
