@@ -26,7 +26,7 @@ iot:
     - cloud_tdk_robokit_lidar_py
   thing_name_series: InvenSense-
   thing_group_name: InvenSense
-  thing_name: Invensense-01
+  thing_name: InvenSense-04
   component_arn: arn:aws:greengrass:us-east-2:771899563211:components:com.invensense.cloud:versions:1.0.0
 lambda:
 s3:
